@@ -6,7 +6,12 @@ const ipTimeZoneNode = document.getElementById('ip-timezone')
 const ipISPNode = document.getElementById('ip-isp')
 const ipInputNode = document.getElementById('ipInput')
 const ipSubmitBttn = document.getElementById('ip-submit')
-let mymap = L.map('mapid', {zoomControl: false})
+let mymap = L.map('mapid', 
+    {
+        zoomControl: false,
+        center: [90.505, -0.09]
+    }
+)
 
 //query an ip if it clicked
 ipSubmitBttn.addEventListener('click', () =>{
