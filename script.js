@@ -19,6 +19,7 @@ ipSubmitBttn.addEventListener('click', () =>{
     getIPAddress(apiAddress)
 })
 
+//fetch the users api
 async function getIPAddress(ipAddress=''){
     //create necesary string to query the api
     const apiKey = 'at_BSdrpKxLckMWLsn8oZJ3A8y01M4eY'
@@ -35,10 +36,9 @@ async function getIPAddress(ipAddress=''){
     }
 }
 
-//function used to render the users IP
+//function used to render the users IP information
 function updateDOM(jsonResponse){
     //get results to update the DOM
-    console.log(jsonResponse)
     let {city, region, postalCode, timezone, lat, lng} = jsonResponse.location
     let isp = jsonResponse.isp.slice(0, 13)
     let ipAddress = jsonResponse.ip

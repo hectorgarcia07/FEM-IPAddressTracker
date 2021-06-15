@@ -76,7 +76,7 @@ html, body, .container{
 .ip-content-container{
     background-color: white;
     border-radius: 15px;
-    padding: 0.5em;
+    padding: 0.8em 0;
     margin-top: 0.7em;
     position: absolute;
     left: 0;
@@ -117,27 +117,35 @@ html, body, .container{
     z-index: 1;
 }
 
-/* @media(min-width: 375px){
+@media(min-width: 670px){
     .container{
         max-width: 1440px;
     }
 
+    .input-container{
+        width: 55%;
+        margin: 0 auto;
+    }
+
     .ip-container{
         margin: 0 auto;
+        max-width: 830px;
     }
     .ip-content-container{
         display: flex;
+        width: 80%;
+        margin: 0 auto;
+        margin-top: 2.5em;
+        padding: 1.5em 0;
     }
 
     .ip-info-block{
         padding: 0 1em 0 0.9em;
+        margin: 0;
         overflow-wrap: break-word;
-    }
-    .ip-info-block:last-child{
-        margin-bottom: 0.7em;
     }
 
     .ip-info-block + .ip-info-block{
         border-left: 1px solid black;
     }
-} */
+}
