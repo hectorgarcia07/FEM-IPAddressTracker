@@ -6,6 +6,9 @@ const ipTimeZoneNode = document.getElementById('ip-timezone')
 const ipISPNode = document.getElementById('ip-isp')
 const ipInputNode = document.getElementById('ipInput')
 const ipSubmitBttn = document.getElementById('ip-submit')
+const ipInfoBlockNode = document.getElementsByClassName('ip-info-block')
+const loaderNode = document.getElementsByClassName('loader')[0]
+
 let mymap = L.map('mapid', 
     {
         zoomControl: false,
@@ -53,7 +56,15 @@ function updateDOM(jsonResponse){
     ipTimeZoneNode.innerText = `UTC ${timezone}`
     ipISPNode.innerText = `${isp}`
     ipInputNode.value = ipAddress
+
+    //make result visible 
+    for(let node of ipInfoBlockNode){
+        node.style.visibility = 'visible'
+    }
     
+    //hide loader
+    loaderNode.style.visibility = 'hidden'
+
     renderMap(lat, lng)
 }
 
