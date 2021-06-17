@@ -116,22 +116,27 @@ body,
 #mapid {
   flex: 1;
   z-index: 1;
+  background-color: rgb(212, 212, 212);
 }
 
 /* Loader animation provided by https://www.w3schools.com/howto/howto_css_loader.asp */
 .loader {
-  position: absolute;
-  margin: auto;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
   border: 16px solid #353535; /* Light grey */
   border-top: 16px solid #3498db; /* Blue */
   border-radius: 50%;
   width: 80px;
   height: 80px;
   animation: spin 2s linear infinite;
+}
+
+.center-loader {
+  text-align: center;
+  position: absolute;
+  margin: auto;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
 }
 
 @keyframes spin {

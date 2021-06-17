@@ -35,7 +35,9 @@ async function getIPAddress(ipAddress=''){
         
         updateDOM(jsonResponse)
     }catch(err){
-        console.log(err)
+        //hide loader
+        loaderNode.classList.toggle('loader')
+        loaderNode.innerText = "Error could not fetch information."
     }
 }
 
