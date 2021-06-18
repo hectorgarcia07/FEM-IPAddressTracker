@@ -8,6 +8,13 @@ const ipInputNode = document.getElementById('ipInput')
 const ipSubmitBttn = document.getElementById('ip-submit')
 const ipInfoBlockNode = document.getElementsByClassName('ip-info-block')
 const loaderNode = document.getElementsByClassName('loader')[0]
+const errorDisplayNode = document.getElementsByClassName('error-display')[0]
+
+//todo
+/*
+test several ip address
+test invalid ip inputs and handle appropratly
+*/
 
 let mymap = L.map('mapid', 
     {

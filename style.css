@@ -74,10 +74,6 @@ body,
   background-color: grey;
 }
 
-.ip-info-container {
-  position: relative;
-}
-
 .ip-content-container {
   background-color: white;
   border-radius: 15px;
@@ -148,6 +144,9 @@ body,
   }
 }
 
+.error-display {
+}
+
 @media (min-width: 670px) {
   .container {
     max-width: 1440px;
@@ -159,7 +158,6 @@ body,
   }
 
   .ip-container {
-    margin: 0 auto;
     max-width: 830px;
   }
   .ip-content-container {
