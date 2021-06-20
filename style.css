@@ -145,6 +145,8 @@ body,
 }
 
 .error-display {
+  position: absolute;
+  text-align: center;
 }
 
 @media (min-width: 670px) {

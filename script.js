@@ -26,30 +26,66 @@ let mymap = L.map('mapid',
 //query an ip if it clicked
 ipSubmitBttn.addEventListener('click', () =>{
     const apiAddress = ipInputNode.value
+
+    //hide IP info container
+    hideIPInfoBlock()
+
+    //turn loader on
+    loaderNode.classList.toggle('loader')
+    errorDisplayNode.innerText = ""
+
+    //get ip address and display it otherwise handle error
     getIPAddress(apiAddress)
+        .then(jsonResponse => {
+            updateDOM(jsonResponse)
+        })
+        .catch( error => {
+            //hide loader
+            loaderNode.classList.toggle('loader')
+
+            //make result hidden 
+            hideIPInfoBlock()
+
+            errorDisplayNode.innerText = "ERROR: Could not fetch information."
+        })
 })
+
+function hideIPInfoBlock(){
+    //make result hidden 
+    for(let node of ipInfoBlockNode){
+        node.style.visibility = 'hidden'
+    }
+}
+
+function showIPInfoBlock(){
+    for(let node of ipInfoBlockNode){
+        node.style.visibility = 'visible'
+    }
+}
 
 //fetch the users api
 async function getIPAddress(ipAddress=''){
     //create necesary string to query the api
     const apiKey = 'at_BSdrpKxLckMWLsn8oZJ3A8y01M4eY'
     let link = `https://geo.ipify.org/api/v1?apiKey=${apiKey}&ipAddress=${ipAddress}`
-    
-    try{
-        //query api
-        let ipPromise = await fetch(link)
-        let jsonResponse = await ipPromise.json()
-        
-        updateDOM(jsonResponse)
-    }catch(err){
-        //hide loader
-        loaderNode.classList.toggle('loader')
-        loaderNode.innerText = "Error could not fetch information."
+
+    //query api
+    let ipPromise = await fetch(link)
+
+    //check rewsponse was sucessfull
+    //otherwise throw error
+    if(!ipPromise.ok)
+    {    
+        throw new Error(`ERROR: ${ipPromise.status}`)
     }
+
+    //return json format
+    return await ipPromise.json()
 }
 
 //function used to render the users IP information
 function updateDOM(jsonResponse){
+    console.log("update")
     //get results to update the DOM
     let {city, region, postalCode, timezone, lat, lng} = jsonResponse.location
     let isp = jsonResponse.isp.slice(0, 13)
@@ -66,17 +102,20 @@ function updateDOM(jsonResponse){
     ipISPNode.innerText = `${isp}`
     ipInputNode.value = ipAddress
 
-    //make result visible 
-    for(let node of ipInfoBlockNode){
-        node.style.visibility = 'visible'
-    }
-    
-    //hide loader
-    loaderNode.style.visibility = 'hidden'
+    //turn loader off
+    loaderNode.classList.toggle('loader')
 
+    //hide text just incase it is shown
+    errorDisplayNode.innerText = ""
+
+    //make result visible 
+    showIPInfoBlock()
+
+    //show users location on map
     renderMap(lat, lng)
 }
 
+//will display user's location on map
 function renderMap(lat , lng){
     mymap.setView([lat, lng], 13);
 
@@ -103,4 +142,15 @@ function renderMap(lat , lng){
 }
 
 getIPAddress()
+    .then(jsonResponse => {
+        updateDOM(jsonResponse)
+    })
+    .catch( error => {
+        //hide loader
+        loaderNode.classList.toggle('loader')
 
+        //make result hidden 
+        hideIPInfoBlock()
+
+        errorDisplayNode.innerText = "ERROR: Could not fetch information."
+    })
