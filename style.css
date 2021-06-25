@@ -25,7 +25,8 @@ body,
 .bg-img {
   background: url("./images/pattern-bg.png") no-repeat;
   background-size: cover;
-  flex: 0.4;
+  max-height: 180px;
+  flex-grow: 0.4;
 }
 
 .ip-container {
@@ -146,6 +147,7 @@ body,
 
 .error-display {
   position: absolute;
+  width: 100%;
   text-align: center;
 }
 

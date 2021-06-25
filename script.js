@@ -85,7 +85,6 @@ async function getIPAddress(ipAddress=''){
 
 //function used to render the users IP information
 function updateDOM(jsonResponse){
-    console.log("update")
     //get results to update the DOM
     let {city, region, postalCode, timezone, lat, lng} = jsonResponse.location
     let isp = jsonResponse.isp.slice(0, 13)
