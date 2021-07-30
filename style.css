@@ -59,16 +59,17 @@ body,
   color: hsl(0, 0%, 17%);
 }
 
-.ip-input:focus {
-  outline: none;
-}
-
 .submit {
-  content: url(./images/icon-arrow.svg);
   padding: 0.7em 1em;
   background-color: black;
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
+  cursor: pointer;
+  border: none;
+}
+
+.submig-svg {
+  background-color: black;
 }
 
 .submit:active {

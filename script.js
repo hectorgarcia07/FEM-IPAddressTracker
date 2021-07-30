@@ -10,18 +10,22 @@ const ipInfoBlockNode = document.getElementsByClassName('ip-info-block')
 const loaderNode = document.getElementsByClassName('loader')[0]
 const errorDisplayNode = document.getElementsByClassName('error-display')[0]
 
-//todo
-/*
-test several ip address
-test invalid ip inputs and handle appropratly
-*/
-
+//holds the map
 let mymap = L.map('mapid', 
     {
         zoomControl: false,
-        center: [90.505, -0.09]
     }
 )
+
+//sets up the icon of the map
+let myIcon = L.icon({
+    iconUrl: 'images/icon-location.svg',
+    iconSize: [38, 45],
+    iconAnchor: [22, 45],
+    popupAnchor: [-3, -76],
+    shadowSize: [68, 95],
+    shadowAnchor: [22, 94]
+});
 
 //query an ip if it clicked
 ipSubmitBttn.addEventListener('click', () =>{
@@ -126,17 +130,9 @@ function renderMap(lat , lng){
     tileSize: 512,
     zoomOffset: -1,
     accessToken: 'pk.eyJ1IjoiamRiamZsIiwiYSI6ImNrcHJpODFpMDBmY2Iyb3Z6cnR0MWpqdjQifQ.roj5KdobPjnTg2iCShTdeA'
-}).addTo(mymap);
+    }).addTo(mymap);
 
-    //sets up the icon of the map
-    let myIcon = L.icon({
-        iconUrl: 'images/icon-location.svg',
-        iconSize: [38, 45],
-        iconAnchor: [22, 45],
-        popupAnchor: [-3, -76],
-        shadowSize: [68, 95],
-        shadowAnchor: [22, 94]
-    });
+    
     L.marker([lat, lng], {icon: myIcon}).addTo(mymap);
 }
 
