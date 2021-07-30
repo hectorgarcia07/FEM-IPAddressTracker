@@ -33,8 +33,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Github: [Github](https://github.com/hectorgarcia07/FEM-IPAddressTracker)
+- GitHub Pages: [Github Pages](https://hectorgarcia07.github.io/FEM-IPAddressTracker/)
 
 ### Built with
 
