@@ -5,10 +5,10 @@ const ipLocationNode = document.getElementById('ip-location')
 const ipTimeZoneNode = document.getElementById('ip-timezone')
 const ipISPNode = document.getElementById('ip-isp')
 const ipInputNode = document.getElementById('ipInput')
-const ipSubmitBttn = document.getElementById('ip-submit')
 const ipInfoBlockNode = document.getElementsByClassName('ip-info-block')
 const loaderNode = document.getElementsByClassName('loader')[0]
 const errorDisplayNode = document.getElementsByClassName('error-display')[0]
+const form = document.getElementById("form")
 
 //holds the map
 let mymap = L.map('mapid', 
@@ -28,7 +28,8 @@ let myIcon = L.icon({
 });
 
 //query an ip if it clicked
-ipSubmitBttn.addEventListener('click', () =>{
+form.addEventListener('submit', function(e){
+    e.preventDefault()
     const apiAddress = ipInputNode.value
 
     //hide IP info container

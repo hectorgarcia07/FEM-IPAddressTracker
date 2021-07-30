@@ -25,12 +25,13 @@
         <h1 class="title">
           IP Address Tracker
         </h1>
-        <div class="input-container">
-          <input type="text" name="" id="ipInput" class="ip-input" placeholder="Search for an IP address or domain">
-          <button class="submit" id="ip-submit">
-            <img src="./images/icon-arrow.svg">
+        <form class="input-container" id="form">
+          <input id="ipInput" type="text" class="ip-input" placeholder="Search for an IP address or domain">
+          <label for="ipInput" class="hide-element">Search for an IP address</label>
+          <button class="submit" aria-label="Submit">
+            <img src="./images/icon-arrow.svg" alt="">
           </button>
-        </div>
+        </form>
         <div class="ip-content-container">
           <div class="loader center-loader"></div>
           <div class="error-display"></div>

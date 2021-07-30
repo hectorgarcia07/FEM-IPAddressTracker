@@ -49,6 +49,20 @@ body,
   display: flex;
 }
 
+/* Used to hide label field source:
+https://www.nomensa.com/blog/how-improve-web-accessibility-hiding-elements */
+.hide-element {
+  border: 0;
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
 .ip-input {
   padding: 0.6em 1em;
   border-top-left-radius: 15px;
