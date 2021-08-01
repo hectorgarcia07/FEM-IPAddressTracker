@@ -26,7 +26,7 @@
           IP Address Tracker
         </h1>
         <form class="input-container" id="form">
-          <input id="ipInput" type="text" class="ip-input" placeholder="Search for an IP address or domain">
+          <input id="ipInput" type="text" class="ip-input" tabindex=0 placeholder="Search for an IP address or domain">
           <label for="ipInput" class="hide-element">Search for an IP address</label>
           <button class="submit" aria-label="Submit">
             <img src="./images/icon-arrow.svg" alt="">
@@ -36,25 +36,26 @@
           <div class="loader center-loader"></div>
           <div class="error-display"></div>
           <div class="ip-info-block">
-            <h5 class="ip-info">IP Address</h5>
+            <h2 class="ip-info">IP Address</h2>
             <div id="ip-address" class="ip-data">&nbsp;</div>
           </div>
           <div class="ip-info-block">
-            <h5 class="ip-info">Location</h5>
+            <h2 class="ip-info">Location</h2>
             <div id="ip-location" class="ip-data"></div>
           </div>
           <div class="ip-info-block">
-            <h5 class="ip-info">Timezone</h5>
+            <h2 class="ip-info">Timezone</h2>
             <div id="ip-timezone" class="ip-data"></div>
           </div>
           <div class="ip-info-block">
-            <h5 class="ip-info">ISP</h5>
+            <h2 class="ip-info">ISP</h2>
             <div id="ip-isp" class="ip-data"></div>
           </div>
         </div>
       </section>
     </div>
     <section id="mapid">
+      <h2 class="hide-element">Your location based on the IP address</h2>
     </section>
   </main>
   <!-- <div class="attribution">
