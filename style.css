@@ -15,6 +15,7 @@ html,
 body,
 .container {
   height: 100%;
+  
 }
 
 .container {
@@ -170,6 +171,8 @@ https://www.nomensa.com/blog/how-improve-web-accessibility-hiding-elements */
 @media (min-width: 670px) {
   .container {
     max-width: 1440px;
+    margin: 0 auto;
+
   }
 
   .input-container {
